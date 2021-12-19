@@ -56,7 +56,7 @@
 	
 	--clr-switch: 	      #3193DE;
 
-	--game-size: 30rem;
+	--game-size: 48rem;
 	--game-border: 1.5rem solid var(--clr-border);
 }
 
@@ -64,21 +64,21 @@
 /* 1. Tags
 /**********************************/
 html {
-    font-size: 62,5%;
+    font-size: 62.5%;
 }
 
 body {
 	background-image: url('http://cdn.backgroundhost.com/backgrounds/subtlepatterns/green_dust_scratch.png');
-    font-family: "Bungee", verdana, sans-serif;
+    font-family: 'Bungee', verdana, sans-serif;
 }
 
 /**********************************/
 /* 2. Body
 /**********************************/
 .container{
-    width: var(--game-size);
-    margin-left: auto;
-    margin-right: auto;
+  width: var(--game-size);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /**********************************/
@@ -90,14 +90,30 @@ body {
     display: flex;
     flex-wrap: wrap;
     margin-top: 5rem;
+	position: relative;
 }
 
+.game_title{
+  font-size: 4rem;
+  text-transform: uppercase;
+  margin: 0;
+  padding-left: 1.2rem;
+  padding-top: 4.7rem;
+}
+
+.reg{
+    font-family: verdana, sans-serif;
+    font-size: 1.8rem;
+    margin-left: -1rem;
+    vertical-align: top;
+}
 /**********************************/
 /* 3.1 Game Colors
 /**********************************/
 .game_color{
     width: calc(var(--game-size) / 2);
     height: calc(var(--game-size) / 2);
+    border: var(--game-border);
 }
 
 .game_color-tl{
@@ -140,11 +156,135 @@ body {
 /**********************************/
 /* 3.2 Center
 /**********************************/
+.game_section{
+    position: absolute;
+    background-color: var(--clr-center);
+     
+    width: calc(var(--game-size) / 2);
+    height: calc(var(--game-size) / 2);
+ 
+    top: calc(var(--game-size) / 4);
+    left: calc(var(--game-size) / 4);
+     
+    border: var(--game-border);
+    border-radius: 25rem;
+}
 
 /**********************************/
-/* 3.2.1 GUI
+/* 3.2.1 options
 /**********************************/
 
+.options{
+    padding-left: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+
+}
+
+.group{
+    margin-right: 2.2rem;
+}
+.group-large{
+    display: flex;
+    width: 10rem;
+    margin-left: 4.5rem;
+}
+
+.options_label{
+    font-family: 'Arima Madurai', cursive;
+    font-weight: bold;
+    font-size: 0.75rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.options_label--switch{
+    margin: 0;
+    padding-top: .75rem;
+
+}
+.options_btn{
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: .2rem;
+    border-radius: 5rem;
+    box-shadow: 0 .2rem .3rem #222;
+    border: .4rem solid #444;
+    cursor: pointer;
+}
+
+.options_btn:active{
+    transform: translate(0, .3rem);
+    box-shadow: none;
+}
+
+.options_btn--start{
+    background-color: red;
+}
+
+.options_btn--strict{
+    background-color: yellow;
+}
+
+.options_btn--switch{
+    background-color: #222;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    width: 5rem;
+    height: 2.3rem;
+    border-radius: .3rem;
+    cursor: pointer;
+}
+
+.options_btn--switch::before{
+    content: "";
+    background-color: var(--clr-switch);
+    position: relative;
+    display: block;
+    left: 2.5rem;
+    width: 2.2rem;
+    height: 1.9rem;
+    border-radius: .3rem;
+    border: .2rem solid #333;
+}
+
+.options_btn--switch--on::before{
+    left: 0;
+}
+
+.options_counter{
+    background-color: var(--clr-counter-bg);
+    color: var(--clr-counter-off);
+    font-family: 'Iceland', cursive;
+    font-weight: bold;
+    font-size: 3.0rem;
+    text-align: right;
+    width: 5.5rem;
+    border: .3rem solid #000;
+    border-radius: 1rem;
+    padding-right: .2rem;
+    padding-left: .3rem;
+
+}
+
+.options_counter--on{
+    color: var(--clr-counter-on);
+}
+
+.options_led {
+    background-color: #32050C;
+    margin-left: 1rem;
+    margin-bottom: .5rem;
+    width: .8rem;
+    height: .8rem;
+    border: .2rem solid #222;
+    border-radius: 2rem;
+}
+ 
+.optoions_led--active {
+    background-color: red;
+}
 /**********************************/
 /* 4. Footer
 /**********************************/
