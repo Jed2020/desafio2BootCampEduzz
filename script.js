@@ -10,13 +10,13 @@ const _data = {
 	playerSequence: []
 };
 
-const _gui = {
-	counter: document.querySelector(".gui__counter"),
-	switch: document.querySelector(".gui__btn-switch"),
-	led: document.querySelector(".gui__led"),
-	strict: document.querySelector(".gui__btn--strict"),
-	start: document.querySelector(".gui__btn--start"),
-	pads: document.querySelectorAll(".game__pad")
+const _options = {
+	counter: document.querySelector(".options_counter"),
+	switch: document.querySelector(".options_btn--switch"),
+	led: document.querySelector(".options_led"),
+	strict: document.querySelector(".options_btn--strict"),
+	start: document.querySelector(".options_btn--start"),
+	pads: document.querySelectorAll(".game_color")
 }
 
 const _soundUrls = [
@@ -31,15 +31,31 @@ _soundUrls.forEach(sndPath => {
 	_data.sounds.push(audio);
 });
 
-_gui.switch.addEventListener("click", () => {
+_options.switch.addEventListener("click", () => {
+	_data.gameOn = _options.switch.classList.toggle("options_btn--switch--on");
+	_options.counter.classList.toggle("options_counter--on");
+	_options.counter.innerHTML = "--";
+
+	_data.strict = false;
+	_data.startGame = false;
+	_data.playerCanPlay = false;
+	_data.score = 0;
+	_data.gameSequence = [];
+	_data.playerSequence = [];
+
+	disablePads();
+
+	_options.led.classList.remove("optoions_led--active")
+});
+
+_options.strict.addEventListener("click", () => {
+	if (!_data.gameOn)
+		return;
+	_data.strict = _options.led.classList.toggle("optoions_led--active");
 
 });
 
-_gui.strict.addEventListener("click", () => {
-
-});
-
-_gui.start.addEventListener("click", () => {
+_options.start.addEventListener("click", () => {
 
 });
 
@@ -47,7 +63,7 @@ const padListener = (e) => {
 
 }
 
-_gui.pads.forEach(pad => {
+_options.pads.forEach(pad => {
 	pad.addEventListener("click", padListener);
 });
 
@@ -84,5 +100,8 @@ const changePadCursor = (cursorType) => {
 }
 
 const disablePads = () => {
+	_options.pads.forEach(pad => {
+		pad.classList.remove("game_color--active");
+	});
 
 }
