@@ -286,5 +286,10 @@ body {
     background-color: red;
 }
 /**********************************/
-/* 4. Footer
+/* 4. Responsive
 /**********************************/
+@media (max-width: 600px) {
+    html {
+        font-size: 45%;
+    }
+}
